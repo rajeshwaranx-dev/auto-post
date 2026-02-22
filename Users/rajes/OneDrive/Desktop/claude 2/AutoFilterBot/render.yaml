@@ -1,0 +1,45 @@
+services:
+  - type: worker
+    name: autofilterbot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: FILES_DB_URI
+        sync: false
+      - key: USERS_DB_URI
+        sync: false
+      - key: FILES_DB_NAME
+        value: AutoFilterFiles
+      - key: USERS_DB_NAME
+        value: AutoFilterUsers
+      - key: LOG_CHANNEL
+        sync: false
+      - key: FSUB_CHANNEL
+        sync: false
+      - key: ADMINS
+        sync: false
+      - key: SHORTLINK_URL
+        sync: false
+      - key: SHORTLINK_API
+        sync: false
+      - key: VERIFY_EXPIRE
+        value: "86400"
+      - key: VERIFICATION_ON
+        value: "true"
+      - key: PROTECT_CONTENT
+        value: "false"
+      - key: AUTO_DELETE
+        value: "300"
+      - key: SPELL_CHECK
+        value: "true"
+      - key: MAX_RESULTS
+        value: "10"
