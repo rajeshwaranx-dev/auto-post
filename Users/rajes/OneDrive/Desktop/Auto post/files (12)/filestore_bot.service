@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram FileStoreBot
+After=network.target mongod.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/telegram_autopost
+ExecStart=/opt/telegram_autopost/venv/bin/python -m filebot.main
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+EnvironmentFile=/opt/telegram_autopost/.env
+
+[Install]
+WantedBy=multi-user.target
